@@ -27,7 +27,7 @@
         android:layout_centerVertical="true"
         android:ems="10"
         android:hint="@string/introduce_password"
-        android:inputType="textCapCharacters|textPassword"/>
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/activity_login_save"

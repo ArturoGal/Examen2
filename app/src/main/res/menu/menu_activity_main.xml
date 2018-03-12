@@ -4,12 +4,10 @@
       tools:context="com.iteso.tarea05.ActivityMain">
     <item
         android:id="@+id/action_logout"
-        android:orderInCategory="100"
         android:title="@string/logout"
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_privacyPolicy"
-        android:orderInCategory="100"
         android:title="@string/privacy_policy"
         app:showAsAction="never"/>
 </menu>
