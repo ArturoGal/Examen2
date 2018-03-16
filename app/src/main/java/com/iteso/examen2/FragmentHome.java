@@ -1,4 +1,4 @@
-package com.iteso.tarea05;
+package com.iteso.examen2;
 
 
 import android.content.Intent;
@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.iteso.tarea05.beans.ItemProduct;
-import com.iteso.tarea05.tools.Constant;
+import com.iteso.examen2.beans.ItemProduct;
+import com.iteso.examen2.tools.Constant;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.iteso.tarea05;
+package com.iteso.examen2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,7 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.iteso.tarea05.tools.Constant;
+import com.iteso.examen2.tools.Constant;
 
 /**
  * @author Oscar Vargas

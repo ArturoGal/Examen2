@@ -1,15 +1,14 @@
-package com.iteso.tarea05;
+package com.iteso.examen2;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+        import android.content.Intent;
+        import android.content.SharedPreferences;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
 
 public class ActivityLogin extends AppCompatActivity {
-
     EditText name, pwd;
     Button login;
 
@@ -32,7 +31,6 @@ public class ActivityLogin extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 
     public void saveUser(){
@@ -45,16 +43,4 @@ public class ActivityLogin extends AppCompatActivity {
         editor.apply();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

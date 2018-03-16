@@ -1,4 +1,4 @@
-package com.iteso.tarea05.beans;
+package com.iteso.examen2.beans;
 
 import android.os.Parcel;
 import android.os.Parcelable;

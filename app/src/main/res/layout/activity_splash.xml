@@ -5,9 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iteso.tarea05.ActivitySplash"
-    android:background="@color/colorPrimary"
-   >
+    tools:context="com.iteso.examen2.ActivitySplashScreen"
+    android:background="@color/colorPrimary">
 
     <TextView
         android:id="@+id/textView"
@@ -16,7 +15,7 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:text="@string/welcome_to_itesoproducts"
-        android:textSize="30sp"
+        android:textSize="@dimen/Splash_textSize"
         android:textColor="#fff"/>
 
     <ProgressBar
@@ -26,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
-
+        android:layout_marginTop="@dimen/splash_progresBar_margin"/>
 
 </RelativeLayout>

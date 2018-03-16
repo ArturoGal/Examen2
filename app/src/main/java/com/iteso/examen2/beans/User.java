@@ -1,4 +1,4 @@
-package com.iteso.tarea05.beans;
+package com.iteso.examen2.beans;
 
 /**
  * Created by artur on 10-Mar-18.

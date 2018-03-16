@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.iteso.tarea05.ActivityLogin">
+    tools:context="com.iteso.examen2.ActivityLogin">
 
     <EditText
         android:id="@+id/editText"

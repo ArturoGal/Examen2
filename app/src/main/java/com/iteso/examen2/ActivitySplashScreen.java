@@ -1,15 +1,15 @@
-package com.iteso.tarea05;
+package com.iteso.examen2;
         import android.content.Intent;
         import android.content.SharedPreferences;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
 
-        import com.iteso.tarea05.beans.User;
+        import com.iteso.examen2.beans.User;
 
         import java.util.Timer;
         import java.util.TimerTask;
 
-public class ActivitySplash extends AppCompatActivity {
+public class ActivitySplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +22,9 @@ public class ActivitySplash extends AppCompatActivity {
                 User user = loadUser();
                 Intent intent;
                 if(user.isLogged()){
-                    intent = new Intent(ActivitySplash.this, ActivityMain.class);
+                    intent = new Intent(ActivitySplashScreen.this, ActivityMain.class);
                 }else{
-                    intent = new Intent(ActivitySplash.this, ActivityLogin.class);
+                    intent = new Intent(ActivitySplashScreen.this, ActivityLogin.class);
                 }
                 startActivity(intent);
                 finish();

@@ -1,4 +1,4 @@
-package com.iteso.tarea05;
+package com.iteso.examen2;
 
 
 import android.content.Intent;
@@ -11,23 +11,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.iteso.tarea05.beans.ItemProduct;
-import com.iteso.tarea05.tools.Constant;
+import com.iteso.examen2.beans.ItemProduct;
+import com.iteso.examen2.tools.Constant;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentTechnology extends Fragment {
+public class FragmentElectronics extends Fragment {
+
 
     RecyclerView recyclerView;
-    ArrayList<ItemProduct> products;
-    AdapterProduct adapterProduct;
 
-    public FragmentTechnology() {
+    public FragmentElectronics() {
         // Required empty public constructor
     }
 
@@ -38,7 +36,6 @@ public class FragmentTechnology extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_technology, container, false);
         recyclerView = rootView.findViewById(R.id.fragment_recycler);
-
         return rootView;
     }
 
@@ -52,31 +49,16 @@ public class FragmentTechnology extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        products = new ArrayList<>();
-        products.add(new ItemProduct(1, "Mac", "BestBuy", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_MAC));
-        products.add(new ItemProduct(2, "Alienware", "DELL", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_ALIENWARE));
-        products.add(new ItemProduct(3, "Lanix", "Saint Jhonny", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_ALIENWARE));
+        ArrayList<ItemProduct> products = new ArrayList<>();
+        products.add(new ItemProduct(6, "Refrigerador", "BestBuy", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_REFRIGERATOR));
+        products.add(new ItemProduct(7, "Micro", "Palacio de Hierro", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_MICRO));
 
-
-        adapterProduct = new AdapterProduct(Constant.FRAGMENT_TECHNOLOGY, getActivity(), products);
+        AdapterProduct adapterProduct = new AdapterProduct(Constant.FRAGMENT_ELECTRONICS, getActivity(), products);
         recyclerView.setAdapter(adapterProduct);
     }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        ItemProduct itemProduct = data.getParcelableExtra(Constant.EXTRA_PRODUCT);
-        Iterator<ItemProduct> iterator = products.iterator();
-        int position = 0;
-        while(iterator.hasNext()){
-            ItemProduct item = iterator.next();
-            if(item.getCode() == itemProduct.getCode()){
-                products.set(position, itemProduct);
-                break;
-            }
-            position++;
-        }
-        adapterProduct.notifyDataSetChanged();
-
     }
+
 }
