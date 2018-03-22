@@ -98,7 +98,6 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
 
         Bitmap bitmap = ((BitmapDrawable)holder.mImage.getDrawable()).getBitmap();
         holder.mImage.setImageBitmap(bitmap);
-
         holder.mPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +106,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 context.startActivity(intent);
 
             }
-        });
+        });`
 
     }
 
