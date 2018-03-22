@@ -33,19 +33,19 @@ public class ActivityProduct extends AppCompatActivity {
         save = findViewById(R.id.activity_product_save);
         cancel = findViewById(R.id.activity_product_cancel);
 
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                itemProduct.setTitle(title.getText().toString());
-                itemProduct.setLocation(location.getText().toString());
-                itemProduct.setStore(store.getText().toString());
-                itemProduct.setPhone(phone.getText().toString());
-                Intent intent = new Intent();
-                intent.putExtra(Constant.EXTRA_PRODUCT, itemProduct);
-                setResult(RESULT_OK, intent);
-                finish();
-            }
-        });
+//        save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                itemProduct.setTitle(title.getText().toString());
+//                itemProduct.setLocation(location.getText().toString());
+//                itemProduct.setStore(store.getText().toString());
+//                itemProduct.setPhone(phone.getText().toString());
+//                Intent intent = new Intent();
+//                intent.putExtra(Constant.EXTRA_PRODUCT, itemProduct);
+//                setResult(RESULT_OK, intent);
+//                finish();
+//            }
+//        });
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,37 +55,37 @@ public class ActivityProduct extends AppCompatActivity {
             }
         });
 
-        if (getIntent().getExtras() != null) {
-            itemProduct = getIntent().getParcelableExtra(Constant.EXTRA_PRODUCT);
-            if (itemProduct != null) {
-                title.setText(itemProduct.getTitle());
-                location.setText(itemProduct.getLocation());
-                store.setText(itemProduct.getStore());
-                phone.setText(itemProduct.getPhone());
-                switch (itemProduct.getImage()) {
-                    case Constant.TYPE_MAC:
-                        image.setImageResource(R.drawable.mac);
-                        break;
-                    case Constant.TYPE_ALIENWARE:
-                        image.setImageResource(R.drawable.alienware);
-                        break;
-                    case Constant.TYPE_SHEETS:
-                        image.setImageResource(R.drawable.sheets);
-                        break;
-                    case Constant.TYPE_PILLOW:
-                        image.setImageResource(R.drawable.pillows);
-                        break;
-                    case Constant.TYPE_REFRIGERATOR:
-                        image.setImageResource(R.drawable.refrigerator);
-                        break;
-                    case Constant.TYPE_MICRO:
-                        image.setImageResource(R.drawable.micro);
-                        break;
-                }
-                Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
-                image.setImageBitmap(bitmap);
-            }
-        }
+//        if (getIntent().getExtras() != null) {
+//            itemProduct = getIntent().getParcelableExtra(Constant.EXTRA_PRODUCT);
+//            if (itemProduct != null) {
+//                title.setText(itemProduct.getTitle());
+//                location.setText(itemProduct.getLocation());
+//                store.setText(itemProduct.getStore());
+//                phone.setText(itemProduct.getPhone());
+//                switch (itemProduct.getImage()) {
+//                    case Constant.TYPE_MAC:
+//                        image.setImageResource(R.drawable.mac);
+//                        break;
+//                    case Constant.TYPE_ALIENWARE:
+//                        image.setImageResource(R.drawable.alienware);
+//                        break;
+//                    case Constant.TYPE_SHEETS:
+//                        image.setImageResource(R.drawable.sheets);
+//                        break;
+//                    case Constant.TYPE_PILLOW:
+//                        image.setImageResource(R.drawable.pillows);
+//                        break;
+//                    case Constant.TYPE_REFRIGERATOR:
+//                        image.setImageResource(R.drawable.refrigerator);
+//                        break;
+//                    case Constant.TYPE_MICRO:
+//                        image.setImageResource(R.drawable.micro);
+//                        break;
+//                }
+//                Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+//                image.setImageBitmap(bitmap);
+//            }
+//        }
 
     }
 }

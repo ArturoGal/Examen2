@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.iteso.examen2.ActivityLogin">
 
     <EditText
+        android:padding="@dimen/fab_margin"
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +20,7 @@
         android:inputType="textEmailAddress"/>
 
     <EditText
+        android:padding="@dimen/fab_margin"
         android:id="@+id/editText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,6 +31,7 @@
         android:inputType="textPassword"/>
 
     <Button
+        android:padding="@dimen/fab_margin"
         android:id="@+id/activity_login_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

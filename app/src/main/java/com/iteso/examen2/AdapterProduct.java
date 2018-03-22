@@ -18,13 +18,7 @@ import com.iteso.examen2.tools.Constant;
 
 import java.util.ArrayList;
 
-/**
- * @author Oscar Vargas
- * @since 26/02/18.
- */
-
 public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHolder>{
-
     private ArrayList<ItemProduct> products;
     private Context context;
     private int fragment;
@@ -42,6 +36,8 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         TextView mPhone;
         RelativeLayout mDetail;
         ImageView mImage;
+        ImageView mThumbnail;
+
 
         ViewHolder(View v){
             super(v);
@@ -51,6 +47,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             mPhone = v.findViewById(R.id.item_product_phone);
             mImage = v.findViewById(R.id.item_product_image);
             mDetail = v.findViewById(R.id.item_product_layout);
+            mThumbnail = v.findViewById(R.id.item_product_thumbnail);
         }
     }
     @Override
@@ -63,9 +60,9 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mTitle.setText(products.get(holder.getAdapterPosition()).getTitle());
-        holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore());
-        holder.mLocation.setText(products.get(holder.getAdapterPosition()).getLocation());
-        holder.mPhone.setText(products.get(holder.getAdapterPosition()).getPhone());
+        holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore().getName());
+        holder.mLocation.setText(products.get(holder.getAdapterPosition()).getStore().getCity().getName());
+        holder.mPhone.setText(products.get(holder.getAdapterPosition()).getStore().getPhone());
 
         switch(products.get(holder.getAdapterPosition()).getImage()){
             case Constant.TYPE_MAC:
@@ -74,40 +71,43 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 holder.mImage.setImageResource(R.drawable.alienware); break;
             case Constant.TYPE_SHEETS:
                 holder.mImage.setImageResource(R.drawable.sheets); break;
-            case Constant.TYPE_PILLOW:
+            case Constant.TYPE_PILLOWS:
                 holder.mImage.setImageResource(R.drawable.pillows); break;
-            case Constant.TYPE_REFRIGERATOR:
+            case Constant.TYPE_REFRI:
                 holder.mImage.setImageResource(R.drawable.refrigerator); break;
             case Constant.TYPE_MICRO:
                 holder.mImage.setImageResource(R.drawable.micro); break;
+            case Constant.TYPE_BLENDER:
+                    holder.mImage.setImageResource(R.drawable.blender); break;
+            case Constant.TYPE_LANIX:
+                    holder.mImage.setImageResource(R.drawable.lanix); break;
+            case Constant.TYPE_TV:
+                    holder.mImage.setImageResource(R.drawable.tv); break;
+            case Constant.TYPE_SPEAKERS:
+                    holder.mImage.setImageResource(R.drawable.speakers); break;
         }
+
+        switch(products.get(holder.getAdapterPosition()).getStore().getThumbnail()){
+            case Constant.TYPE_BESTBUY:
+                holder.mThumbnail.setImageResource(R.drawable.bestbuy); break;
+            case Constant.TYPE_SEARS:
+                holder.mThumbnail.setImageResource(R.drawable.sears); break;
+            case Constant.TYPE_FRYS:
+                holder.mThumbnail.setImageResource(R.drawable.frys); break;
+        }
+
         Bitmap bitmap = ((BitmapDrawable)holder.mImage.getDrawable()).getBitmap();
         holder.mImage.setImageBitmap(bitmap);
-
-        holder.mDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(context, products.get(holder.getAdapterPosition()).toString(),
-                //        Toast.LENGTH_LONG).show();
-
-                Intent intent = new Intent(context, ActivityProduct.class);
-                intent.putExtra(Constant.EXTRA_PRODUCT, products.get(holder.getAdapterPosition()));
-                intent.putExtra(Constant.EXTRA_FRAGMENT, fragment);
-                ((ActivityMain) context).startActivityForResult(intent, Constant.ACTIVITY_DETAIL);
-            }
-        });
 
         holder.mPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL,
-                        Uri.parse("tel:" + products.get(holder.getAdapterPosition()).getPhone()));
+                        Uri.parse("tel:" + products.get(holder.getAdapterPosition()).getStore().getPhone()));
                 context.startActivity(intent);
 
             }
         });
-
-
 
     }
 

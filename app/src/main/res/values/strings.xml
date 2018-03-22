@@ -14,4 +14,17 @@
     <string name="introduce_user">Introduce user</string>
     <string name="introduce_password">Introduce password</string>
     <string name="login">Login</string>
+
+    <string-array name="activity_item_images_spinner">
+        <item>Mac</item>
+        <item>"Alienware"</item>
+        <item>"Blender"</item>
+        <item>"Lanix"</item>
+        <item>"TV"</item>
+        <item>"Speakers"</item>
+        <item>"Sheets"</item>
+        <item>"Microwave"</item>
+        <item>"Pillows"</item>
+        <item>"Refrigerator"</item>
+    </string-array>
 </resources>

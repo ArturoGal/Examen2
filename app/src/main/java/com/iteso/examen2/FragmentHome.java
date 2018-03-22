@@ -1,6 +1,5 @@
 package com.iteso.examen2;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,18 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iteso.examen2.beans.ItemProduct;
+import com.iteso.examen2.database.DataBaseHandler;
+import com.iteso.examen2.database.ItemProductControl;
 import com.iteso.examen2.tools.Constant;
 
+import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FragmentHome extends Fragment {
-
-
     RecyclerView recyclerView;
+    ArrayList<ItemProduct> products;
+    AdapterProduct adapterProduct;
 
     public FragmentHome() {
         // Required empty public constructor
@@ -34,30 +33,43 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_technology, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = rootView.findViewById(R.id.fragment_recycler);
+
+
         return rootView;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
         recyclerView.setHasFixedSize(true);
         // Use a linear layout manager
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-
-        ArrayList<ItemProduct> products = new ArrayList<>();
-        products.add(new ItemProduct(4, "Sabanas", "Zara Home", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_SHEETS));
-        products.add(new ItemProduct(5, "Almohadas", "Zara Home", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_PILLOW));
-
-        AdapterProduct adapterProduct = new AdapterProduct(Constant.FRAGMENT_HOME, getActivity(), products);
+        DataBaseHandler dh = DataBaseHandler.getInstance(getActivity());
+        products = new ItemProductControl().getItemProductsByCategory(2, dh);
+        adapterProduct = new AdapterProduct(Constant.FRAGMENT_HOME, getActivity(), products);
         recyclerView.setAdapter(adapterProduct);
     }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void notifyDataSetChanged(ItemProduct itemProduct){
+        products.add(itemProduct);
+        adapterProduct.notifyDataSetChanged();
     }
+
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        ItemProduct itemProduct = data.getParcelableExtra(Constant.EXTRA_PRODUCT);
+//        Iterator<ItemProduct> iterator = products.iterator();
+//        int position = 0;
+//        while (iterator.hasNext()) {
+//            ItemProduct item = iterator.next();
+//            if (item.getCode() == itemProduct.getCode()) {
+//                products.set(position, itemProduct);
+//                break;
+//            }
+//            position++;
+//        }
+//        adapterProduct.notifyDataSetChanged();
+//    }
 }

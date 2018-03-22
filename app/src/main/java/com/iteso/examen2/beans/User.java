@@ -1,8 +1,5 @@
 package com.iteso.examen2.beans;
 
-/**
- * Created by artur on 10-Mar-18.
- */
 
 import android.os.Parcel;
 import android.os.Parcelable;
