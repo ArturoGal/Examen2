@@ -106,7 +106,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 context.startActivity(intent);
 
             }
-        });`
+        });
 
     }
 
